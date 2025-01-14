@@ -20,7 +20,14 @@ pipeline {
                 '''
             }
         }
+
         stage('Test') {
+            agent{
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
             steps {
                 sh '''
             if [ -e "/var/jenkins_home/workspace/learn-jenkins-app/build/index.html" ]; then
