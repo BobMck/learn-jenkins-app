@@ -61,7 +61,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    tnpm install -g serve
+                    npm install -g serve
                     sudo serve -s build
                     npx playwright test
                 '''
